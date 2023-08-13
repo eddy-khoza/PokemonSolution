@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" style="color:white;">Pokemon Manager</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarColor02">
+     <form class="form-inline my-2 my-lg-0">
+        <input type="search" (ngModelChange)="searchPokemons(key.value)" #key="" ngModel
+         name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search Pokemons..." required>
+     </form>
+  </div>
+</nav>
+<div class="container" id="main-container">
+<div class="row">
+  <div *ngFor="let pokemon of pokemons" class="col-md-6 col-xl-3">
+     <div class="card m-b-30">
+        <div class="card-body row">
+           <div class="col-6">
+              <a href=""><img src="{{pokemon?.imageUrl}}" alt="" class="img-fluid rounded-circle w-60"></a>
+           </div>
+           <div class="col-6 card-title align-self-center mb-0">
+              <h5>{{pokemon?.name}}</h5>
+              <p class="m-0">{{pokemon?.name}}</p>
+           </div>
+        </div>
+     </div>
+  </div>
+</div>
+
+
+<!-- Notification for no Pokemons -->
+<div *ngIf="pokemons?.length == 0" class="col-lg-12 col-md-12 col-xl-12">
+<div class="alert alert-info" role="alert">
+  <h4 class="alert-heading">NO POKEMONS!</h4>
+  <p>No Pokemons were found.</p>
+</div>
+</div>
